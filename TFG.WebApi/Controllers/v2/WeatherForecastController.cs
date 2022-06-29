@@ -5,10 +5,10 @@ using System.Collections.Generic;
 using System.Linq;
 using TFG.WebApi.Models;
 
-namespace TFG.WebApi.Controllers
+namespace TFG.WebApi.Controllers.v2
 {
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("api/v2/[controller]")]
     public class WeatherForecastController : ControllerBase
     {
         private static readonly string[] Summaries = new[]
