@@ -7,6 +7,8 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System.Text;
+using TFG.WebApi.Interfaces;
+using TFG.WebApi.Repositories;
 
 namespace TFG.WebApi
 {
@@ -34,7 +36,13 @@ namespace TFG.WebApi
                     ValidateIssuerSigningKey = true,
                     ValidIssuer = Configuration["JWT:Issuer"],
                     ValidAudience = Configuration["JWT:Audience"],
-                    IssuerSigningKey = new SymmetricSecurityKey(key)
+                    IssuerSigningKey = new SymmetricSecurityKey(key),
+
+                    ValidateLifetime = true,
+                    ValidateIssuer = false,
+                    ValidateAudience = false
+
+                    
                 };
             });
 
@@ -49,6 +57,9 @@ namespace TFG.WebApi
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "TFG.WebApi.v1", Version = "v1" });
                 c.SwaggerDoc("v2", new OpenApiInfo { Title = "TFG.WebApi.v2", Version = "v2" });
             });
+
+            services.AddSingleton<IJwtManagerRepository, JwtManagerRepository>();
+
         }
 
         // This method gets called by the runtime. Use t his method to configure the HTTP request pipeline.
