@@ -73,5 +73,105 @@ namespace TFG.Test.CustomerTest
             }
 
         }
+
+        [TestMethod]
+        public async Task Test_GetCustomerById()
+        {
+            //Arrange
+            var config = new HttpConfiguration();
+            //configure web api
+            config.MapHttpAttributeRoutes();
+
+            //Act
+            using (var server = new HttpServer(config))
+            {
+
+                var client = new HttpClient(server);
+
+                string url = "https://localhost:44330/api/v2/customers/2";
+
+                var request = new HttpRequestMessage
+                {
+                    RequestUri = new Uri(url),
+                    Method = HttpMethod.Get
+                };
+
+                request.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+                using (var response = await client.SendAsync(request))
+                {
+                    //Assert
+                    Assert.AreEqual(HttpStatusCode.OK, response.StatusCode);
+                }
+            }
+
+        }
+
+
+        [TestMethod]
+        public async Task Test_SearchCustomer()
+        {
+            //Arrange
+            var config = new HttpConfiguration();
+            //configure web api
+            config.MapHttpAttributeRoutes();
+
+            //Act
+            using (var server = new HttpServer(config))
+            {
+
+                var client = new HttpClient(server);
+
+                string url = "https://localhost:44330/api/v2/customers/123";
+
+                var request = new HttpRequestMessage
+                {
+                    RequestUri = new Uri(url),
+                    Method = HttpMethod.Get
+                };
+
+                request.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+                using (var response = await client.SendAsync(request))
+                {
+                    //Assert
+                    Assert.AreEqual(HttpStatusCode.OK, response.StatusCode);
+                }
+            }
+
+        }
+
+        [TestMethod]
+        public async Task Test_DeleteCustomer()
+        {
+            //Arrange
+            var config = new HttpConfiguration();
+            //configure web api
+            config.MapHttpAttributeRoutes();
+
+            //Act
+            using (var server = new HttpServer(config))
+            {
+
+                var client = new HttpClient(server);
+
+                string url = "https://localhost:44330/api/v2/customers/2";
+
+                var request = new HttpRequestMessage
+                {
+                    RequestUri = new Uri(url),
+                    Method = HttpMethod.Delete
+                };
+
+                request.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+                using (var response = await client.SendAsync(request))
+                {
+                    //Assert
+                    Assert.AreEqual(HttpStatusCode.OK, response.StatusCode);
+                }
+            }
+
+        }
     }
 }
