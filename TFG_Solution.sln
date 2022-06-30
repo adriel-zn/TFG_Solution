@@ -3,7 +3,12 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.32510.428
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TFG.WebApi", "TFG.WebApi\TFG.WebApi.csproj", "{D3798872-7163-473B-9B7F-D96A0B330C27}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TFG.WebApi", "TFG.WebApi\TFG.WebApi.csproj", "{D3798872-7163-473B-9B7F-D96A0B330C27}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TFG.Test", "TFG.Test\TFG.Test.csproj", "{1159AA36-67B3-45DB-97E9-8510850C96D3}"
+	ProjectSection(ProjectDependencies) = postProject
+		{D3798872-7163-473B-9B7F-D96A0B330C27} = {D3798872-7163-473B-9B7F-D96A0B330C27}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +20,10 @@ Global
 		{D3798872-7163-473B-9B7F-D96A0B330C27}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D3798872-7163-473B-9B7F-D96A0B330C27}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D3798872-7163-473B-9B7F-D96A0B330C27}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1159AA36-67B3-45DB-97E9-8510850C96D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1159AA36-67B3-45DB-97E9-8510850C96D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1159AA36-67B3-45DB-97E9-8510850C96D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1159AA36-67B3-45DB-97E9-8510850C96D3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
