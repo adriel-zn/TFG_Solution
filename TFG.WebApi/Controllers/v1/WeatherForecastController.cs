@@ -9,6 +9,7 @@ namespace TFG.WebApi.Controllers.v1
 {
     [ApiController]
     [Route("api/v1/[controller]")]
+    [ApiExplorerSettings(IgnoreApi = true)]
     public class WeatherForecastController : ControllerBase
     {
         private static readonly string[] Summaries = new[]

@@ -1,22 +1,18 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using TFG.WebApi.Interfaces;
 using TFG.WebApi.Models;
 
 namespace TFG.WebApi.Controllers.v1
 {
-    [Authorize]
     [ApiController]
     [Route("api/v1/users")]
     public class UserController : ControllerBase
     {
-        private readonly IJwtManagerRepository jwtManagerRepository;
+        private readonly IRepository jwtManagerRepository;
 
-        public UserController(IJwtManagerRepository jwtManagerRepository)
+        public UserController(IRepository jwtManagerRepository)
         {
             this.jwtManagerRepository = jwtManagerRepository;
         }

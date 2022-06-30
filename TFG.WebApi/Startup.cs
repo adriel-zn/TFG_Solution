@@ -58,7 +58,7 @@ namespace TFG.WebApi
                 c.SwaggerDoc("v2", new OpenApiInfo { Title = "TFG.WebApi.v2", Version = "v2" });
             });
 
-            services.AddSingleton<IJwtManagerRepository, JwtManagerRepository>();
+            services.AddSingleton<IRepository, Repository>();
 
         }
 

@@ -14,9 +14,9 @@ namespace TFG.WebApi.Controllers.v2
     [Route("api/v2/users")]
     public class UserController : ControllerBase
     {
-        private readonly IJwtManagerRepository jwtManagerRepository;
+        private readonly IRepository jwtManagerRepository;
 
-        public UserController(IJwtManagerRepository jwtManagerRepository)
+        public UserController(IRepository jwtManagerRepository)
         {
             this.jwtManagerRepository = jwtManagerRepository;
         }

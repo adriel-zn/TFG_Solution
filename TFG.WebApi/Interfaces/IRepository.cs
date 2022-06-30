@@ -6,8 +6,9 @@ using TFG.WebApi.Models;
 
 namespace TFG.WebApi.Interfaces
 {
-    public  interface IJwtManagerRepository
+    public  interface IRepository
     {
+        /* Authentication Interfaces */
         Tokens Authenticate(Users user);
     }
 }

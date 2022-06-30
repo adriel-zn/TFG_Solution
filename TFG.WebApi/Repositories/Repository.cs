@@ -13,26 +13,41 @@ using TFG.WebApi.Models;
 
 namespace TFG.WebApi.Repositories
 {
-    public class JwtManagerRepository: IJwtManagerRepository
+    public class Repository: IRepository
     {
         private readonly IConfiguration configuration;
 
-        Dictionary<string, string> UsersList = new Dictionary<string, string>
+        public List<Users> UsersList = new List<Users>
         {
-            {"Username1","Password1" },
-            {"Username2","Password2" },
-            {"Username3","Password3" },
+            new Users()
+            {
+                Username = "Username1",
+                Password = "Password1",
+                Role = "Administrator"
+            },
+            new Users()
+            {
+                Username = "Username2",
+                Password = "Password2",
+                Role = "User"
+            },
+            new Users()
+            {
+                Username = "Username3",
+                Password = "Password3",
+                Role = "User"
+            }
 
         };
 
-        public JwtManagerRepository(IConfiguration configuration)
+        public Repository(IConfiguration configuration)
         {
             this.configuration = configuration;
         }
 
         public Tokens Authenticate(Users user)
         {
-            if(!UsersList.Any(x => x.Key == user.Username && x.Value == user.Password))
+            if(!UsersList.Any(x => x.Username == user.Username && x.Password == user.Password))
             {
                 return null;
             }
